@@ -1,0 +1,61 @@
+@page
+@model netcore_ms_auth.Pages_ToDos.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ToDo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ToDo.Title" class="control-label"></label>
+                <input asp-for="ToDo.Title" class="form-control" />
+                <span asp-validation-for="ToDo.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToDo.Description" class="control-label"></label>
+                <input asp-for="ToDo.Description" class="form-control" />
+                <span asp-validation-for="ToDo.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToDo.Status" class="control-label"></label>
+                <select asp-for="ToDo.Status" class="form-control"></select>
+                <span asp-validation-for="ToDo.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToDo.CreatedAt" class="control-label"></label>
+                <input asp-for="ToDo.CreatedAt" class="form-control" />
+                <span asp-validation-for="ToDo.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToDo.UpdatedAt" class="control-label"></label>
+                <input asp-for="ToDo.UpdatedAt" class="form-control" />
+                <span asp-validation-for="ToDo.UpdatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToDo.CreatedBy" class="control-label"></label>
+                <input asp-for="ToDo.CreatedBy" class="form-control" />
+                <span asp-validation-for="ToDo.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToDo.UpdatedBy" class="control-label"></label>
+                <input asp-for="ToDo.UpdatedBy" class="form-control" />
+                <span asp-validation-for="ToDo.UpdatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
