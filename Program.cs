@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using netcore_ms_auth.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
@@ -13,6 +14,15 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+//builder.Services.AddControllersWithViews();
+
+builder.Services
+    .AddAuthentication()
+    .AddMicrosoftAccount(msOptions =>
+    {
+        msOptions.ClientId = configuration["Authentication:Microsoft:ClientId"] ?? string.Empty;
+        msOptions.ClientSecret = configuration["Authentication:Microsoft:ClientSecret"] ?? string.Empty;
+    });
 
 var app = builder.Build();
 

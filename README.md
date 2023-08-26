@@ -14,3 +14,13 @@ Build the project
 ```powershell
 dotnet restore .
 ```
+
+Enable secret manager
+```powershell
+dotnet user-secrets init
+```
+
+Self Signed Certification
+```powershell
+dotnet dev-certs https --trust
+```
